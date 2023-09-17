@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "core.html",
+    "href": "core.html",
+    "title": "eventchain",
+    "section": "",
+    "text": "source\n\nEventChain\n\n EventChain (df1:pandas.core.frame.DataFrame,\n             df2:pandas.core.frame.DataFrame, user_col:str,\n             timestamp_col:str, suffix)\n\nInitialize self. See help(type(self)) for accurate signature.\n\nsource\n\n\nget_stats\n\n get_stats (nominator_df, denominator_df, user_col, gap_column='gap')"
+  },
+  {
+    "objectID": "test.html",
+    "href": "test.html",
+    "title": "eventchain",
+    "section": "",
+    "text": "An event chain is basically like a series of dominoes, where knocking over the first one triggers the next one, and so on. In processes or systems, an “event” is something that happens—a trigger, an action, a message, etc. Once this first event occurs, it sets off a chain reaction of other events.\nImagine you’re at home and your doorbell rings. That’s the first event. The ringing doorbell could trigger a series of other events:\n\nYour dog starts barking because of the doorbell.\nYou get up from your chair to see who it is.\nYou open the door and greet your friend.\nYou invite your friend inside.\nYou both sit down and start talking.\nEach of these actions is an event, and they’re all connected. The doorbell ringing set off a “chain” of events, one leading to the next.\n\nIn business or computer systems, understanding event chains can be crucial for analyzing how actions and reactions are interconnected. Knowing how one event affects the next helps you design better processes, make systems more efficient, or find out where things might go wrong."
+  },
+  {
+    "objectID": "test.html#install",
+    "href": "test.html#install",
+    "title": "eventchain",
+    "section": "Install",
+    "text": "Install\npip install eventchain"
+  },
+  {
+    "objectID": "test.html#how-to-use",
+    "href": "test.html#how-to-use",
+    "title": "eventchain",
+    "section": "How to use",
+    "text": "How to use\nFill me in please! Don’t forget code examples:\n\nimport pandas as pd\nfrom eventchain.core import *\n\nBuilding a new event chain is super simple:\nYou create a new EventChain object with the following parameters:\n\nchain = EventChain(df1=visited, df2=purchased, user_col=\"user_id\", timestamp_col=\"date\", suffix=[\"added_to_shoppingcard\", \"purchased\"])\n\nOnce done you have access to all event chains calculated for you.\nAs an example let’s have a look at the event chain first_before_first  which can be interpreted in our example as the first date a user added an item to their shopping card before the first date they purchased.\n\nchain.first_before_first\n\n\n\n\n\n\n\n\nuser_id\ndate_added_to_shoppingcard\ndate_purchased\ngap\n\n\n\n\n0\n1\n2018-07-01\n2018-07-02\n1 days\n\n\n3\n5\n2018-07-10\n2018-07-11\n1 days\n\n\n4\n6\n2018-07-07\n2018-07-10\n3 days\n\n\n5\n8\n2018-08-01\n2018-08-02\n1 days\n\n\n\n\n\n\n\nIn addition (and for illustration purposes ignoring the fact that a shopping cart would have its own ID), we can now check the last date a user created a shopping cart before their first purchase.\n\nchain.last_before_first\n\n\n\n\n\n\n\n\nuser_id\ndate_added_to_shoppingcard\ndate_purchased\ngap\n\n\n\n\n0\n1\n2018-07-01\n2018-07-02\n1 days\n\n\n4\n6\n2018-07-08\n2018-07-10\n2 days\n\n\n\n\n\n\n\nFor user_1 the first date and last date for shpping cart creation is the same, however user_6 had two shopping carts created (here our interpretation would be she dropped out one time).\nPlease note that - in these first iterations of the package - not much tooling has been added to do such comparisons in a convenient way, so you would have to implement your own downstream analysis.\n\nSome areas where event chain analysis can be used:\nThese easy to build event chains enables lots of ways to analyse your data and to answer interesting questions about your processes or customer behaviour.\n\nTime Analyis\nCost Analysis\nDependency Mapping\nSensitivity Analysis\nSimulation Models\nError Impact Assessment\nSuccess Metrics\nUser Experience Journey\nFeedback Loops\nComparative Analysis"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "eventchain",
+    "section": "",
+    "text": "An event chain is basically like a series of dominoes, where knocking over the first one triggers the next one, and so on. In processes or systems, an “event” is something that happens—a trigger, an action, a message, etc. Once this first event occurs, it sets off a chain reaction of other events.\nImagine you’re at home and your doorbell rings. That’s the first event. The ringing doorbell could trigger a series of other events:\n\nYour dog starts barking because of the doorbell.\nYou get up from your chair to see who it is.\nYou open the door and greet your friend.\nYou invite your friend inside.\nYou both sit down and start talking.\nEach of these actions is an event, and they’re all connected. The doorbell ringing set off a “chain” of events, one leading to the next.\n\nIn business or computer systems, understanding event chains can be crucial for analyzing how actions and reactions are interconnected. Knowing how one event affects the next helps you design better processes, make systems more efficient, or find out where things might go wrong."
+  },
+  {
+    "objectID": "index.html#install",
+    "href": "index.html#install",
+    "title": "eventchain",
+    "section": "Install",
+    "text": "Install\npip install eventchain"
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "eventchain",
+    "section": "How to use",
+    "text": "How to use\nFill me in please! Don’t forget code examples:\n\nimport pandas as pd\nfrom eventchain.core import *\n\nBuilding a new event chain is super simple:\nYou create a new EventChain object with the following parameters:\n\nchain = EventChain(df1=shoppingcard, df2=purchases, user_col=\"user_id\", timestamp_col=\"date\", suffix=[\"added_to_shoppingcard\", \"purchased\"])\n\nOnce done you have access to all event chains calculated for you.\nAs an example let’s have a look at the event chain first_before_first  which can be interpreted in our example as the first date a user added an item to their shopping card before the first date they purchased.\n\nchain.first_before_first\n\n\n\n\n\n\n\n\nuser_id\ndate_added_to_shoppingcard\ndate_purchased\ngap\n\n\n\n\n0\n1\n2018-07-01\n2018-07-02\n1 days\n\n\n3\n5\n2018-07-10\n2018-07-11\n1 days\n\n\n4\n6\n2018-07-07\n2018-07-10\n3 days\n\n\n5\n8\n2018-08-01\n2018-08-02\n1 days\n\n\n\n\n\n\n\nIn addition (and for illustration purposes ignoring the fact that a shopping cart would have its own ID), we can now check the last date a user created a shopping cart before their first purchase.\n\nchain.last_before_first\n\n\n\n\n\n\n\n\nuser_id\ndate_added_to_shoppingcard\ndate_purchased\ngap\n\n\n\n\n0\n1\n2018-07-01\n2018-07-02\n1 days\n\n\n4\n6\n2018-07-08\n2018-07-10\n2 days\n\n\n\n\n\n\n\nFor user_1 the first date and last date for shpping cart creation is the same, however user_6 had two shopping carts created (here our interpretation would be she dropped out one time).\nPlease note that - in these first iterations of the package - not much tooling has been added to do such comparisons in a convenient way, so you would have to implement your own downstream analysis.\n\nEvent Chain Stats\nThe first data frame is used to calculate some distribution statistics of the gap betwenn event A (first time shopping card creation) and event B (first time purchasing),  the second is used as a baseline and to calculate the percentage of occurrence of event A compared to event B.\n\nstats = get_stats(chain.first_before_first, chain.any_event_A, user_col=\"user_id\", gap_column=\"gap\")\n\n==================================================\nMetric                         Value     \n==================================================\nno_events_of_interest          4         \nall_events                     7         \npct                            57.14285714285714\nmean_gap                       1.5       \nmedian_gap                     1.0       \nstd_dev                        1.0       \nmin_gap                        1         \nmax_gap                        3         \n25th_percentile                1.0       \n50th_percentile                1.0       \n75th_percentile                1.5       \nskewness                       1.9999999999999998\nkurtosis                       4.0       \nconf_interval_lower            0.520018007729973\nconf_interval_upper            2.479981992270027\n==================================================\n\n\n\n\nSome areas where event chain analysis can be used:\nThese easy to build event chains enables lots of ways to analyse your data and to answer interesting questions about your processes or customer behaviour.\n\nTime Analyis\nCost Analysis\nDependency Mapping\nSensitivity Analysis\nSimulation Models\nError Impact Assessment\nSuccess Metrics\nUser Experience Journey\nFeedback Loops\nComparative Analysis"
+  }
+]
