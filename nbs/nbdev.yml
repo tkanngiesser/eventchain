@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "eventchain"
+  site-url: "https://tkanngiesser.github.io/eventchain"
+  description: "Building event chains in a convenient way"
+  repo-branch: main
+  repo-url: "https://github.com/tkanngiesser/eventchain"
