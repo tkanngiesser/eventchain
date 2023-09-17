@@ -49,7 +49,7 @@ You create a new
 object with the following parameters:
 
 ``` python
-chain = EventChain(df1=visited, df2=purchased, user_col="user_id", timestamp_col="date", suffix=["added_to_shoppingcard", "purchased"])
+chain = EventChain(df1=shoppingcard, df2=purchases, user_col="user_id", timestamp_col="date", suffix=["added_to_shoppingcard", "purchased"])
 ```
 
 Once done you have access to all event chains calculated for you.
@@ -120,6 +120,37 @@ interpretation would be she dropped out one time).
 Please note that - in these first iterations of the package - not much
 tooling has been added to do such comparisons in a convenient way, so
 you would have to implement your own downstream analysis.
+
+#### Event Chain Stats
+
+The first data frame is used to calculate some distribution statistics
+of the gap betwenn event A (first time shopping card creation) and event
+B (first time purchasing), <br> the second is used as a baseline and to
+calculate the percentage of occurrence of event A compared to event B.
+
+``` python
+stats = get_stats(chain.first_before_first, chain.any_event_A, user_col="user_id", gap_column="gap")
+```
+
+    ==================================================
+    Metric                         Value     
+    ==================================================
+    no_events_of_interest          4         
+    all_events                     7         
+    pct                            57.14285714285714
+    mean_gap                       1.5       
+    median_gap                     1.0       
+    std_dev                        1.0       
+    min_gap                        1         
+    max_gap                        3         
+    25th_percentile                1.0       
+    50th_percentile                1.0       
+    75th_percentile                1.5       
+    skewness                       1.9999999999999998
+    kurtosis                       4.0       
+    conf_interval_lower            0.520018007729973
+    conf_interval_upper            2.479981992270027
+    ==================================================
 
 ### Some areas where event chain analysis can be used:
 

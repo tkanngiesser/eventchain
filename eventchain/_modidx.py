@@ -44,4 +44,4 @@ d = { 'settings': { 'branch': 'main',
                                                                                    'eventchain/core.py'),
                                  'eventchain.core.EventChain.none_before_last': ( 'core.html#eventchain.none_before_last',
                                                                                   'eventchain/core.py'),
-                                 'eventchain.core.say_hello': ('core.html#say_hello', 'eventchain/core.py')}}}
+                                 'eventchain.core.get_stats': ('core.html#get_stats', 'eventchain/core.py')}}}
